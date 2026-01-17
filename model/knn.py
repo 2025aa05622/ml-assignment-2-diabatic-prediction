@@ -63,7 +63,7 @@ def knn():
     except Exception:
         auc = None
 
-    print("Logistic Regression – Validation Report")
+    print("K Nearest Neighbors – Validation Report")
     print(classification_report(y_val, y_pred, digits=4))
     if auc is not None:
         print(f"AUC: {auc:.4f}")

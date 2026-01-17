@@ -21,7 +21,8 @@ MODEL_LIST = {
     "Logistic Regression": "model/logisticreg.pkl",
     "Decision Tree Classifier": "model/decissomtree.pkl",
     "Naive Bayes Classifier": "model/naivebayes.pkl",
-    "K-Nearest Neighbor Classifier": "model/knn.pkl"
+    "K-Nearest Neighbor Classifier": "model/knn.pkl",
+    "Random Forest": "model/randomforest.pkl"
 }
 
 @st.cache_resource
@@ -104,8 +105,8 @@ def render_results(model_name: str, y_true, y_pred, y_proba):
 
     st.markdown("### Performance Summary")
     summary = (
-        f"**{acc:.2f}** accuracy, "
-        f"precision **{prec:.2f}** and recall **{rec:.2f}** achieved by The **{model_name}** model"
+        f"accuracy = **{acc:.2f}** , "
+        f"precision = **{prec:.2f}** and recall = **{rec:.2f}** achieved by The **{model_name}** model"
     )
     st.info(summary)
 
@@ -160,6 +161,11 @@ if uploaded_file is not None:
              render_results(model_choice, y, y_pred, y_proba)
 
         if model_choice == "K-Nearest Neighbor Classifier":
+             y_pred = pipe.predict(X)
+             y_proba = predict_probabilities(pipe, X)
+             render_results(model_choice, y, y_pred, y_proba)
+
+        if model_choice == "Random Forest":
              y_pred = pipe.predict(X)
              y_proba = predict_probabilities(pipe, X)
              render_results(model_choice, y, y_pred, y_proba)

@@ -3,17 +3,26 @@ import sys
 
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
-from sklearn.naive_bayes import GaussianNB
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report, roc_auc_score
 import pandas as pd
 from joblib import dump
 from loaddata import load_data_from_csv
 
 DATA_FILE_PATH = os.path.join("data", "diabetes_health_indicators_train.csv")
-MODEL_FILE_PATH = os.path.join("model", "naivebayes.pkl")
+MODEL_FILE_PATH = os.path.join("model", "randomforest.pkl")
 
-def build_model() -> GaussianNB:
-    return GaussianNB(var_smoothing=1e-9)
+def build_model() -> RandomForestClassifier:
+    return RandomForestClassifier(
+        n_estimators=300,
+        max_depth=None,
+        min_samples_split=2,
+        min_samples_leaf=1,
+        bootstrap=True,
+        class_weight="balanced",
+        random_state=42,
+        n_jobs=-1,
+    )
 
 def naivebayes():
     ## Load data from file
@@ -44,7 +53,7 @@ def naivebayes():
     except Exception:
         auc = None
 
-    print("Naive Bayes – Validation Report")
+    print("Random Forest – Validation Report")
     print(classification_report(y_val, y_pred, digits=4))
     if auc is not None:
         print(f"AUC: {auc:.4f}")
