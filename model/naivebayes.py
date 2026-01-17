@@ -3,23 +3,19 @@ import sys
 
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
-from sklearn.linear_model import LogisticRegression
+from sklearn.naive_bayes import GaussianNB
 from sklearn.metrics import classification_report, roc_auc_score
 import pandas as pd
 from joblib import dump
 from loaddata import load_data_from_csv
 
 DATA_FILE_PATH = os.path.join("data", "diabetes_health_indicators_train.csv")
-MODEL_FILE_PATH = os.path.join("model", "logisticreg.pkl")
+MODEL_FILE_PATH = os.path.join("model", "naivebayes.pkl")
 
-def build_model() -> LogisticRegression:
-    return LogisticRegression(
-        max_iter=1000,
-        class_weight="balanced",
-        solver="lbfgs"
-    )
+def build_model() -> GaussianNB:
+    return GaussianNB(var_smoothing=1e-9)
 
-def logisticregression():
+def naivebayes():
     ## Load data from file
     df = load_data_from_csv(DATA_FILE_PATH)
 
@@ -59,7 +55,7 @@ def logisticregression():
 
 if __name__ == "__main__":
     try:
-        logisticregression()
+        naivebayes()
     except Exception as e:
         print(f"[ERROR] {e}")
         sys.exit(1)
