@@ -22,7 +22,8 @@ MODEL_LIST = {
     "Decision Tree Classifier": "model/decissomtree.pkl",
     "Naive Bayes Classifier": "model/naivebayes.pkl",
     "K-Nearest Neighbor Classifier": "model/knn.pkl",
-    "Random Forest": "model/randomforest.pkl"
+    "Random Forest": "model/randomforest.pkl",
+    "XGBoost": "model/xgboostclassifier.pkl"
 }
 
 @st.cache_resource
@@ -169,6 +170,11 @@ if uploaded_file is not None:
              y_pred = pipe.predict(X)
              y_proba = predict_probabilities(pipe, X)
              render_results(model_choice, y, y_pred, y_proba)
+
+        if model_choice == "XGBoost":
+             y_pred = pipe.predict(X)
+             y_proba = predict_probabilities(pipe, X)
+             render_results(model_choice, y, y_pred, y_proba)           
              
 
 
