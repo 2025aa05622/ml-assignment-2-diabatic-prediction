@@ -14,9 +14,6 @@ st.set_page_config(
     layout="wide"
 )
 
-#add a file uploader
-uploaded_file = st.file_uploader("Upload your CSV file", type=["csv"])
-
 MODEL_LIST = {
     "Logistic Regression": "model/logisticreg.pkl",
     "Decision Tree Classifier": "model/decissomtree.pkl",
@@ -127,6 +124,31 @@ def predict_probabilities(pipe, X):
         preds = pipe.predict(X)
         return preds.astype(float)
 
+import requests
+
+TEST_DATA_URL = "https://github.com/kameswararaokakaraparti/MLAssignment2/tree/main/data/diabetes_health_indicators_test.csv"
+
+@st.cache_data
+def load_csv_from_github(url):
+    response = requests.get(url)
+    response.raise_for_status()
+    return response.content
+
+csv_bytes = load_csv_from_github(TEST_DATA_URL)
+
+st.caption("Click to download Test data")
+
+st.download_button(
+    label="Download",
+    data=csv_bytes,
+    file_name="diabetes_health_indicators_test.csv",
+    mime="text/csv"
+)
+
+
+
+#add a file uploader
+uploaded_file = st.file_uploader("Upload your CSV file", type=["csv"])
 
 if uploaded_file is not None:
 
