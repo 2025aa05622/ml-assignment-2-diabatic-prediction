@@ -14,6 +14,8 @@ st.set_page_config(
     layout="wide"
 )
 
+st.title("Diabetes Prediction system")
+
 MODEL_LIST = {
     "Logistic Regression": "model/logisticreg.pkl",
     "Decision Tree Classifier": "model/decissomtree.pkl",
