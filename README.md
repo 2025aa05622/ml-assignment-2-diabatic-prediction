@@ -2,12 +2,12 @@
 
 # Bits Id - 2025aa05622
 
-# Heart Disease Classification
+# Diabetis Prediction
 
-This repository contains an end‑to‑end machine learning project implementing six models and a Streamlit web application for heart‑disease prediction.
+This repository contains an end‑to‑end machine learning project implementing six models and a Streamlit web application for Diabetis Prediction.
 
 ## Project Links
-- GitHub Repository: https://github.com/kameswararaokakaraparti/MLAssignment2
+- GitHub Repository: https://github.com/2025aa05622/ml-assignment-2-diabatic-prediction
 - Streamlit Web App: https://ml-assignment-2-diabatic-prediction-mzuhcuwudafmrx7hbfs2xu.streamlit.app/
 
 ---
