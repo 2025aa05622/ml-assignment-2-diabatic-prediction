@@ -126,7 +126,11 @@ def predict_probabilities(pipe, X):
 
 import requests
 
-TEST_DATA_URL = "https://github.com/kameswararaokakaraparti/MLAssignment2/tree/main/data/diabetes_health_indicators_test.csv"
+TEST_DATA_URL = (
+    "https://raw.githubusercontent.com/"
+    "2025aa05622/ml-assignment-2-diabatic-prediction/"
+    "main/data/diabetes_health_indicators_test.csv"
+)
 
 df = pd.read_csv(TEST_DATA_URL)
 
