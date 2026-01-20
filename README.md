@@ -8,6 +8,7 @@ This repository contains an end‑to‑end machine learning project implementing
 
 ## Project Links
 - GitHub Repository: https://github.com/kameswararaokakaraparti/MLAssignment2
+- Streamlit Web App: https://ml-assignment-2-diabatic-prediction-mzuhcuwudafmrx7hbfs2xu.streamlit.app/
 
 ---
 ## a) Problem Statement
