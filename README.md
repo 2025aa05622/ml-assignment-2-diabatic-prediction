@@ -106,3 +106,8 @@ README.md
 ---
 ## Summary
 This project focuses on the end‑to‑end development of machine‑learning solutions for diabetes prediction using the BRFSS dataset. It encompasses data preprocessing, model construction, and systematic evaluation across multiple algorithms to highlight comparative performance
+
+## Screenshots
+![Screenshot] (https://github.com/2025aa05622/ml-assignment-2-diabatic-prediction/blob/main/Screenshot%202026-01-20%20222412.png)
+
+![Screenshot] (https://github.com/2025aa05622/ml-assignment-2-diabatic-prediction/blob/main/Screenshot%202026-01-20%20222612.png)
